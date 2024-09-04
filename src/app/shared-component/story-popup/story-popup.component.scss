@@ -1,0 +1,83 @@
+::ng-deep .mat-dialog-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 80vw; /* Adjust width if needed */
+  max-height: 80vh; /* Adjust height if needed */
+  position: relative; /* Needed for absolute positioning of close button */
+  margin: 0 auto;
+  background: #f3e6f9; /* Light purple background */
+  padding: 16px; /* Add padding if needed */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.popup-title {
+  font-weight: bold; /* Make title bold */
+}
+
+.story-part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .story-part-image {
+    flex: 1;
+    img {
+      width: 100%;
+      max-width: 300px;
+      background: transparent; /* Ensure image has a transparent background */
+    }
+  }
+
+  .story-part-description {
+    flex: 2;
+    padding-left: 16px;
+  }
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.close-button {
+  position: absolute;
+  top: 8px; /* Adjust as needed */
+  right: 8px; /* Adjust as needed */
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+mat-dialog-actions button {
+  margin: 0 8px;
+}
+
+
+/* Center and style the popup */
+.mat-dialog-container {
+  border-radius: 20px;
+  background-color: #a564ed; /* Light purple background */
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Overlay for blurring the background */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Darken the background */
+  backdrop-filter: blur(10px); /* Apply the blur effect */
+  z-index: 999;
+}

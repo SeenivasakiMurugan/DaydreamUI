@@ -1,0 +1,112 @@
+<div class="story-container">
+  <div class="story-filter">
+    <div class="row">
+      <div class="col-md-4">
+        <label for="storyType">Filter by story types</label>
+        <select id="storyType" class="form-control" (change)="getStoryByTypeId($event)">
+          <option value="0" selected>All Types</option>
+          <option *ngFor="let storyType of storyTypes" [value]="storyType.id">
+            {{ storyType.name }}
+          </option>
+        </select>
+      </div>
+      <!-- <div class="col-md-4 mt-4">
+        <a (click)="addNew()" href="#" class="btn btn-add-story float-right" title="Add new story">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div> -->
+    </div>
+  </div>
+  
+  <div class="story-list mt-3">
+    <div *ngFor="let story of filterdStories" class="story-item">
+      <div class="story-image-container">
+        <img [src]="story.image" [alt]="story.title" class="story-image" />
+        <div class="image-overlay"></div>
+        <div class="story-icons">
+          <!-- <a class="story-icon edit-icon" (click)="editStory(story.id)">
+            <i class="fas fa-edit"></i>
+            <span class="icon-label">Edit</span>
+          </a> -->
+          <a class="story-icon download-icon" (click)="downloadStory(story.id)" title="Downlad the story">
+            <i class="fas fa-download"></i>
+            <span class="icon-label">Download</span>
+          </a>
+          <a class="story-icon read-icon" (click)="readStory(story.id)" title="Read the story">
+            <i class="fas fa-book"></i>
+            <span class="icon-label">Read</span>
+          </a>
+        </div>
+      </div>
+      <h3 class="story-title">{{ story.title }}</h3>
+    </div>
+  </div>
+</div>
+
+<p-dialog header="Enter your details here." [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }" class="p-card-header">
+  <form [formGroup]="form">
+    <div class="flex align-items-center gap-3 mb-3">
+      <label for="fullname" class="font-semibold w-6rem">Full Name</label>
+      <input 
+        pInputText 
+        id="firstname" 
+        class="flex-auto form-control" 
+        formControlName="firstname"
+        autocomplete="off" />
+      <div class="form-validation" *ngIf="form.get('firstname')?.invalid && (form.get('firstname')?.touched || form.get('firstname')?.dirty)">
+        <small *ngIf="form.get('firstname')?.errors?.['required']">
+          Please enter the full name
+        </small>
+        <small *ngIf="form.get('firstname')?.errors?.['pattern']">
+          Please enter a valid full name
+        </small>
+      </div>
+    </div>
+    <div class="flex align-items-center gap-3 mb-3">
+      <label for="mobilenumber" class="font-semibold w-6rem">Mobile Number</label>
+      <input 
+        pInputText 
+        id="mobilenumber" 
+        class="flex-auto form-control" 
+        formControlName="mobilenumber"
+        autocomplete="off" />
+      <div class="form-validation" *ngIf="form.get('mobilenumber')?.invalid && (form.get('mobilenumber')?.touched || form.get('mobilenumber')?.dirty)">
+        <small *ngIf="form.get('mobilenumber')?.errors?.['required']">
+          Please enter the mobile number
+        </small>
+        <small *ngIf="form.get('mobilenumber')?.errors?.['pattern'] || form.get('mobilenumber')?.errors?.['minlength'] || form.get('mobilenumber')?.errors?.['maxlength']">
+          Please enter a valid mobile number
+        </small>
+      </div>
+    </div>
+    <div class="flex justify-content-center gap-2">
+      <p-button label="Cancel" severity="secondary" (onClick)="visible = false" class="btn-dialog"/>
+      <p-button label="Save" (onClick)="save()" class="btn-dialog ms-2"/>
+    </div>
+  </form>
+</p-dialog>
+
+<div class="spinner-overlay" *ngIf="isLoading">
+  <mat-spinner diameter="50"></mat-spinner>
+</div>
+
+<div #storyPdfContainer class="story-pdf-container" style="display: none;">
+  <div class="story-name" style="background-color: '';">
+    <p class="story-pdf-title">{{ storyName }}</p>
+  </div>
+  <div *ngFor="let chapter of storyChapters" class="chapter">
+    <div class="chapter-name">
+      <p>{{ chapter.chapterName }}</p>
+    </div>
+    <div *ngFor="let part of chapter.parts" class="story-pdf-card">
+      <div class="story-pdf-content">
+        <div class="story-pdf-image">
+          <img [src]="part.image" alt="Part Image">
+        </div>
+        <div class="story-pdf-description">
+          <p>{{ part.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

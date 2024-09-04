@@ -1,0 +1,142 @@
+/* src/app/components/story/story.component.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.story-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f0f9; /* Light purple background color */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+}
+
+.story-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  position: absolute;
+  left: 0;
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+.btn-back:hover {
+  color: darkorchid;
+}
+
+.story-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+}
+
+.story-part { 
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.part-content {
+  display: flex;
+  align-items: center; /* Align items vertically center */
+  justify-content: center; /* Align items horizontally center */
+  flex-direction: row; /* Keep content in a row */
+}
+
+.part-image img {
+  max-width: 300px; /* Increase image size */
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.part-description {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  text-align: center; /* Center text horizontally */
+}
+
+.navigation-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.navigation-links a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 10px;
+  background-color: #905de9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.navigation-links a.disabled {
+  background-color: #ccc;
+  pointer-events: none;
+}
+
+a{
+  cursor: pointer;
+}
+
+.chapter-nav {
+  display: flex;
+  justify-content: center;
+  flex: 2; /* Make this container wider */
+}
+
+.btn {
+  background-color: darkorchid;
+  color: white;
+  border: none;
+  padding: 3px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: darkorchid;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-part {
+  margin: 0 10px;
+  border-radius: 50%;
+}
+
+.btn-chapter {
+  margin: 0 10px;
+  border-radius:15px ;
+}

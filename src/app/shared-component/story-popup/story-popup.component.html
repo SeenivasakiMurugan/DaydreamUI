@@ -1,0 +1,18 @@
+<h2 mat-dialog-title class="popup-title">{{ title }}</h2>
+<mat-dialog-content>
+  <div class="story-part">
+    <div class="story-part-image">
+      <img *ngIf="currentPart.Image" [src]="currentPart.Image" alt="Part Image" />
+    </div>
+    <div class="story-part-description">
+      <p>{{ currentPart.Description }}</p>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="previousPart()" [disabled]="currentPartIndex === 0">Previous</button>
+  <button mat-button (click)="nextPart()" [disabled]="currentPartIndex === parts.length - 1">Next</button>
+</mat-dialog-actions>
+<button mat-icon-button (click)="closePopup()" class="close-button">
+  <i class="fa fa-times" aria-hidden="true"></i>
+</button>

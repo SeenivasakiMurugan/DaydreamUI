@@ -1,0 +1,50 @@
+/* Card Styling */
+.card-custom {
+    border-radius: 15px; /* Curved corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  }
+  
+  /* Form Control Styling */
+  .form-control-custom,
+  .form-select-custom {
+    background-color: white; /* White background */
+    border: 1px solid #ced4da; /* Light grey border */
+    border-radius: 10px; /* Curved corners */
+  }
+  
+  /* Placeholder text color */
+  .form-control-custom::placeholder,
+  .form-select-custom::placeholder {
+    color: #6c757d; /* Grey placeholder text */
+  }
+  
+  /* Purple Theme for Form Controls */
+  .form-control-custom:focus,
+  .form-select-custom:focus {
+    border-color: #6f42c1; /* Purple border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25); /* Purple shadow on focus */
+  }
+  
+  /* Button Styling */
+  .btn-purple {
+    background-color: #6f42c1; /* Purple background */
+    border-color: #6f42c1; /* Purple border */
+    color: white; /* White text */
+    border-radius: 10px; /* Curved corners */
+  }
+  
+  .btn-purple:hover {
+    background-color: #5a2d9b; /* Darker purple on hover */
+    border-color: #5a2d9b; /* Darker purple border on hover */
+  }
+
+  a{
+    color: black;
+  }
+
+  .btn-back{
+    background-color: #f4f0f9;
+    border: none;
+    border-radius: 50%;
+  }
+  

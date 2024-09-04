@@ -1,0 +1,53 @@
+body {
+    margin: 0; 
+    padding-top: 56px; 
+    overflow-x: hidden;
+    background-color: #f4f0f9 !important;
+  }
+
+  .fixed-header {
+    position: fixed; /* Fixes the header to the top of the page */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make sure it spans the full width of the viewport */
+    z-index: 1000; /* Ensures the header is above other content */
+    background-color: #f8f9fa; /* Optional: Set background color */
+    border-bottom: 1px solid #ddd; /* Optional: Add a bottom border */
+  }
+
+  .content {
+    padding: 20px; /* Add padding if needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: calc(100vh - 56px); /* Full height minus header height */
+  }
+
+  .form-validation{
+    color: red;
+  }
+
+  .toast-container.toast-bottom-center .ngx-toastr {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto; 
+    border-radius: 30px;
+    margin-bottom: 1rem;
+}
+
+.form-control:focus {
+  border-color: purple;
+  box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "../node_modules/font-awesome/css/font-awesome.min.css";
+@import "../node_modules/select2/dist/css/select2.min.css";
+@import "../node_modules/ngx-toastr/toastr.css";
+@import "../node_modules/primeng/resources/themes/saga-purple/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeicons/primeicons.css";
+
+

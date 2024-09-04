@@ -1,0 +1,63 @@
+<div class="story-container">
+  <div class="story-header d-flex align-items-center justify-content-center">
+    <!-- Back Arrow -->
+    <a href="#" class="btn-back" routerLink="/storylist">
+      <i class="fas fa-arrow-left"></i> <!-- Font Awesome icon for the back arrow -->
+    </a>
+    
+    <!-- Story Title -->
+    <h1 class="story-title">{{ storyName }}</h1>
+  </div>
+
+  <!-- Display Current Chapter Name -->
+  <div *ngIf="currentChapter" class="chapter-section">
+    <h2 class="chapter-name ms-4">{{ currentChapter.chapterName }}</h2>
+
+    <!-- Display Current Part of Chapter -->
+    <div *ngIf="currentPart" class="story-part">
+      <div class="part-content d-flex align-items-start">
+        <!-- Part Image -->
+        <div class="part-image me-3">
+          <img [src]="currentPart.image" alt="Part Image" class="img-fluid rounded">
+        </div>
+
+        <!-- Part Description -->
+        <div class="part-description d-flex align-items-center justify-content-center">
+          <p>{{ currentPart.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons for Chapters and Parts -->
+  <div class="navigation-links mt-4">
+    <!-- Container for Part Navigation -->
+    <div class="part-nav">
+      <!-- Previous Part Button -->
+      <button type="button" class="btn btn-part" (click)="onPreviousPart()" [disabled]="isFirstPart()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <!-- Container for Chapter Navigation -->
+    <div class="chapter-nav">
+      <!-- Previous Chapter Button -->
+      <button type="button" class="btn btn-chapter" (click)="loadPreviousChapter()" [disabled]="isFirstChapter()">
+        <i class="fas fa-chevron-left"></i> Previous Chapter
+      </button>
+
+      <!-- Next Chapter Button -->
+      <button type="button" class="btn btn-chapter" (click)="loadNextChapter()" [disabled]="isLastChapter()">
+        Next Chapter <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- Container for Part Navigation -->
+    <div class="part-nav">
+      <!-- Next Part Button -->
+      <button type="button" class="btn btn-part" (click)="onNextPart()" [disabled]="isLastPart()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<header class="fixed-header">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Side Icon -->
+      <a class="navbar-brand" href="#">
+        <img src="../../../assets/icons/Logo.jpeg" alt="Icon" class="side-icon" id="img_logo">
+        <span class="fw-bolder fs-5 ms-2">Daydream</span>
+      </a>
+      <!-- Navbar Toggle (for mobile view) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/storylist">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/about" routerLinkActive="active" style="cursor: pointer;">About us</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li> -->
+          <li class="nav-item" *ngIf="!isLoggedIn">
+            <a class="btn btn-login" href="#">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <div class="user-avatar-wrapper">
+              <div class="user-avatar">
+                {{ getInitials() }}
+              </div>
+              <!-- <div class="popover-content">
+                <a routerLink="/login" class="popover-item">Logout</a>
+              </div> -->
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

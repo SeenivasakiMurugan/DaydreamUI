@@ -1,0 +1,309 @@
+/* src/app/components/story-list/story-list.component.css */
+.story-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.story-item {
+  position: relative; /* Make the item a positioning context for the icons */
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff; /* Background color for the card */
+}
+
+.story-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Blur effect on the image */
+.story-image-container {
+  position: relative;
+}
+
+.story-image {
+  width: 100%;
+  height: 180px; /* Adjust height as necessary */
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.story-item:hover .story-image {
+  filter: blur(4px); /* Apply blur effect on hover */
+}
+
+/* Overlay for better visibility of icons */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.story-item:hover .image-overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+/* Icon container (horizontal layout) */
+.story-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 15px;
+  opacity: 0; /* Hide icons initially */
+  transition: opacity 0.3s ease;
+  align-items: center; /* Align icons vertically centered */
+  z-index: 2; /* Ensure icons are above the overlay */
+}
+
+.story-item:hover .story-icons {
+  opacity: 1; /* Show icons on hover */
+}
+
+/* Icon styling */
+.story-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff; /* White color for icons */
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.story-icon i {
+  font-size: 30px; /* Adjust icon size as necessary */
+}
+
+.story-icon:hover {
+  color: #570987; /* Change icon color on hover */
+  transform: scale(1.1); /* Slightly enlarge icons on hover */
+}
+
+.icon-label {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #ffffff; /* White color for label text */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.story-icon:hover .icon-label {
+  opacity: 1; /* Show label on icon hover */
+}
+
+/* Styling for the story title */
+.story-title {
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #570987;
+  text-align: center;
+}
+
+.story-icon{
+  cursor: pointer;
+}
+
+.fa{
+  cursor: pointer;
+}
+
+.btn-add-story {
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-story:hover {
+  background-color: darkorchid;
+}
+
+.txt-search{
+  border-radius: 20px;
+}
+
+.form-control:focus {
+  border-color: purple;
+  box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+}
+
+#storyType option {
+  color: black;
+}
+
+/* Style for the dropdown when focused */
+#storyType:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 2px rgba(87, 9, 135, 0.5);
+}
+
+select.decorated option:hover {
+  background-color: purple;
+}
+
+/* Custom styles for the dialog component */
+.custom-card .p-dialog-content {
+  padding: 2rem; /* Adds padding inside the dialog content */
+}
+
+/* Custom styles for the input fields */
+.custom-card input[pInputText] {
+  width: 100%; /* Full width for inputs */
+  padding: 0.5rem; /* Padding for larger clickable area */
+  border: 1px solid #ced4da; /* Light gray border */
+  border-radius: 4px; /* Rounded corners for inputs */
+  font-size: 1rem; /* Larger font size for readability */
+}
+
+/* Styles for labels */
+.custom-card label {
+  font-weight: bold; /* Bold text for labels */
+  color: #333; /* Darker color for labels */
+}
+
+/* Custom styles for buttons inside the dialog */
+.custom-button {
+  background-color: #6a1b9a !important; /* Purple background for buttons */
+  color: white !important; /* White text color */
+  border: none !important; /* Removes button border */
+  border-radius: 20px !important; /* Rounded button shape */
+  padding: 0.5rem 1.5rem !important; /* Adds padding for better visual appeal */
+  font-weight: bold !important; /* Bold text */
+  font-size: 1rem !important; /* Larger text for readability */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease !important; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for buttons */
+.custom-button:hover {
+  background-color: #4a148c !important; /* Darker purple on hover */
+}
+
+/* Dialog header styling */
+.custom-card .p-dialog-titlebar {
+  background-color: #6a1b9a; /* Purple background for dialog header */
+  color: white; /* White text for dialog header */
+}
+
+/* Enhances the shadow effect for the dialog */
+.custom-card .p-dialog {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Adds a stronger shadow for depth */
+  border-radius: 8px; /* Rounded corners for dialog */
+}
+
+/* Focus state for input fields */
+.custom-card input[pInputText]:focus {
+  border-color: #6a1b9a; /* Purple border on focus */
+  outline: none; /* Removes default focus outline */
+  box-shadow: 0 0 5px rgba(106, 27, 154, 0.5); /* Adds purple glow effect on focus */
+}
+
+.btn-dialog{
+  border-radius: 30px;
+}
+
+.story-pdf-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers cards horizontally */
+}
+
+.story-pdf-title {
+  font-size: 32px; /* Larger font size for the title */
+  margin-bottom: 20px;
+}
+
+.story-pdf-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  max-width: 900px; 
+  background-color: #f4f0f9;
+}
+
+.story-pdf-content {
+  display: flex;
+  align-items: center;
+  padding: 20px; /* Increased padding for more spacing */
+}
+
+.story-pdf-image {
+  flex: 1;
+  padding: 15px;
+}
+
+.story-pdf-image img {
+  max-width: 100%;
+  height: auto;
+  width: 250px; /* Increased image width */
+  border-radius: 6px; /* Slightly more rounded corners */
+}
+
+.story-pdf-description {
+  flex: 2;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-pdf-description p {
+  margin: 0;
+  font-size: 20px; /* Larger font size for description */
+  text-align: center;
+}
+
+.story-name{
+  background-color: "transparent";
+}
+
+.story-pdf-title{
+  background-color: "transparent";
+}
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.spinner-overlay mat-spinner {
+  z-index: 1001; /* Ensure spinner is on top of the overlay */
+}
+
+body.modal-open {
+  overflow: hidden; /* Prevent scrolling */
+}
+

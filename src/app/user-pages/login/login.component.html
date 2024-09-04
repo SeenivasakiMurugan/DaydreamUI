@@ -1,0 +1,50 @@
+<div class="login-container d-flex justify-content-center align-items-center">
+  <div class="card login-card shadow-lg">
+    <div class="card-body">
+      <div class="text-center mb-4">
+        <img src="../../../assets/icons/Logo.jpeg" alt="Logo" class="logo rounded-circle"/>
+      </div>
+      <form [formGroup]="form">
+        <div class="form-group position-relative mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input 
+            id="username" 
+            type="text" 
+            class="form-control" 
+            placeholder="Username" 
+            formControlName="username"
+          />
+          <i class="fas fa-user position-absolute top-50 end-0 translate-middle-y pe-3 text-purple"></i>
+          <div class="form-validation" *ngIf="form.get('username')?.invalid && (form.get('username')?.touched || form.get('username')?.dirty)">
+            <small>
+              Please enter the username
+            </small>
+          </div>
+        </div>
+        <div class="form-group position-relative mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input 
+            id="password" 
+            type="password" 
+            class="form-control" 
+            placeholder="Password" 
+            formControlName="password"
+          />
+          <i class="fas fa-lock position-absolute top-50 end-0 translate-middle-y pe-3 text-purple"></i>
+          <div class="form-validation" *ngIf="form.get('password')?.invalid && (form.get('password')?.touched || form.get('password')?.dirty)">
+            <small>
+              Please enter the username
+            </small>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end mb-3 forgot-password">
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="button" (click)="login()" class="btn btn-primary w-100 rounded-pill">Login</button>
+      </form>
+      <div class="text-center mt-3">
+        <span>New user? <a href="/signup" class="text-purple">Sign up</a></span>
+      </div>
+    </div>
+  </div>
+</div>

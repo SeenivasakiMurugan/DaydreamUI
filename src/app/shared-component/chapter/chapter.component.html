@@ -1,0 +1,38 @@
+<div class="chapter-container mt-4">
+  <h6 class="chapter-title">Chapter {{chapterIndex + 1}}</h6>
+  <input type="hidden" [(ngModel)]="chapte.chapterId" name="chapterId">
+  <div class="row">
+    <div class="mb-3 col-md-4">
+      <label for="txt_chapterName{{chapterIndex}}" class="form-label">Chapter Name</label>
+      <input type="text" class="form-control form-control-custom" [(ngModel)]="chapte.name" [id]="'txt_chapterName' + chapterIndex">
+    </div>
+  </div>
+  
+  <!-- Display Chapter Parts -->
+  <div class="chapter-parts-container">
+    <div *ngFor="let part of chapte.chapterParts; let i = index" class="row chapter-parts">
+      <input type="hidden" [(ngModel)]="part.partId" name="partId">
+      <div class="mb-3 col-md-6">
+        <label [for]="'txt_chapterDescription' + chapterIndex + '-' + i" class="form-label">Part {{i + 1}}</label>
+        <textarea class="form-control form-control-custom" [(ngModel)]="chapte.chapterParts[i].description" [id]="'txt_chapterDescription' + chapterIndex + '-' + i" rows="3"></textarea>
+      </div>
+      <div class="mb-3 col-md-6">
+        <label class="form-label">Image</label>
+        <div class="image-upload-box">
+          <input type="file" (change)="onImageUpload($event, i)" [id]="'file_upload' + chapterIndex + '-' + i" class="image-upload-input">
+          <label [for]="'file_upload' + chapterIndex + '-' + i" class="image-upload-label">
+            <img *ngIf="uploadedImages[i]" [src]="uploadedImages[i]" alt="Image preview" class="image-preview">
+            <i *ngIf="!uploadedImages[i]" class="fas fa-upload"></i> <!-- Default icon -->
+            <span *ngIf="!uploadedImages[i]">Upload Image</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- Add Icon Only Once -->
+    <div class="text-end mt-2">
+      <button type="button" class="btn btn-icon" (click)="addChapterPart()">
+        <i class="fas fa-plus-circle"></i> Add Another
+      </button>
+    </div>
+  </div>
+</div>

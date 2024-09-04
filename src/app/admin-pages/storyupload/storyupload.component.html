@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <div class="card card-custom">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="card-title">Upload your stories here..</h5>
+        <button class="btn btn-back">
+          <a href="#" routerLink="/storylist" title="Back to storylist">
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </button>
+      </div>
+      <form>
+        <input type="hidden" [(ngModel)]="storyId" name="storyId">
+          <div class="row">
+              <div class="mb-3 col-md-6">
+              <label for="txt_storyName" class="form-label">Story Name</label>
+              <input type="text" class="form-control form-control-custom" [(ngModel)]="storyName" id="txt_storyName" name="storyName">
+              </div>
+              <div class="mb-3 col-md-6">
+                  <label for="ddl_storyType" class="form-label">Story Type</label>
+                  <select class="form-select form-select-custom" [(ngModel)]="storyTypeId" id="ddl_storyType" name="storyType">                     
+                      <option value="0" selected>--Select--</option>
+                      <option *ngFor="let storyType of storyTypes" [value]="storyType.id">
+                        {{ storyType.name }}
+                      </option>
+                  </select>
+              </div>
+          </div>
+
+          <!-- Add Chapter Button -->
+          <div class="mb-3">
+            <button type="button" class="btn btn-add-chapter" (click)="addChapter()">
+              <i class="fa-solid fa-pencil"></i>
+              <span class="fw-bold ms-2">Add Chapter</span> 
+            </button>
+          </div>
+
+          <!-- Render Multiple Chapter Components -->
+          <div *ngFor="let chapter of chapters; let i = index" class="chapter-section mt-2">
+            <app-chapter [chapterIndex]="i" [(ngModel)]="chapters[i]" [ngModelOptions]="{ standalone: true }"></app-chapter>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-flex justify-content-center mt-2">
+            <button type="button" class="btn btn-purple" (click)="saveStory()">Add Story</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

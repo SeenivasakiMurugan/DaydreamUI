@@ -1,0 +1,32 @@
+/* Set the full-page background image */
+.about-us-container {
+    background-image: url('../../../assets/images/aboutBackground.jpeg'); /* Replace with your image path */
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white; 
+  }
+  
+  /* Style the content */
+  .about-us-content {
+    // background-color: rgba(0, 0, 0, 0.6); 
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+  }
+  
+  .about-us-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  

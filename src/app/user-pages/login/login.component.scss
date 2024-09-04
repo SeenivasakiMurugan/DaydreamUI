@@ -1,0 +1,80 @@
+/* Ensure the body doesn't scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+body {
+  overflow: hidden;
+  background-image: none !important;
+}
+
+/* Center the login card properly */
+.login-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+}
+
+.text-purple {
+  color: purple;
+}
+
+.form-control {
+  border-radius: 0.375rem;
+}
+
+.btn-primary {
+  background-color: purple;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: darkpurple;
+}
+
+.forgot-password a {
+  color: purple !important;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.top-50 {
+  top: 71% !important;
+}
+
+.form-control:hover {
+  border-color: purple;
+  box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+}
+
+/* Change border color and box shadow on focus */
+.form-control:focus {
+  border-color: purple;
+  box-shadow: 0 0 5px rgba(128, 0, 128, 0.7);
+  outline: none;
+}
+
+/* Placeholder text color on focus */
+.form-control:focus::placeholder {
+  color: purple;
+}
